@@ -1,0 +1,16 @@
+<div class="main">
+<h2>Your Cart</h2>
+<div *ngIf="cartItems.length === 0">
+  <p>Your cart is empty.</p>
+</div>
+<div *ngFor="let item of cartItems;let i=index" class="cart-item">
+  <h3>{{ item.name }}</h3>
+  <img src="{{item.image}}" alt="Item Image">
+  <p>Price: {{ item.price | currency }}</p>
+  <button mat-raised-button (click)="removeItem(i)">Remove</button>
+</div>
+<div *ngIf="cartItems.length > 0">
+  <h3>Total: {{ getTotal() }}</h3>
+
+</div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+<div class="side-box">
+    <h1>Login</h1>
+    <p>Get access to your Orders, Wishlist and Recommendations</p>
+</div>
+<div class="input">
+    <form [formGroup]="loginForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter Email/Mobile Number</mat-label>
+          <input matInput formControlName="emailOrPhone" type="text" formControlName="email">
+        </mat-form-field>
+        <mat-error *ngIf="loginForm.controls['email'].invalid && 
+        (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)">
+          Enter a valid email
+         </mat-error>
+    </form>
+      <h3>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</h3>
+      <button class="login-button" mat-raised-button (click)="login()">Login</button>
+    
+      <a (click)="signup()">New to Flipkart? Create an account</a>
+    
+</div>
+
+</div>

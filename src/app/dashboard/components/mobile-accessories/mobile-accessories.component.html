@@ -1,0 +1,17 @@
+
+<div class="product-list">
+    <div class="product" *ngFor="let product of products">
+        <img [src]="product.image" alt="{{product.blue}}">
+        <h3>{{ product.name }}</h3>
+        <h3>{{ product.rating }}</h3>
+        <h3>{{ product.brand }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Price: ₹{{ product.price }}</p>
+        <button style="background-color: #e91e63; color:white"
+            class="add-to-cart" mat-raised-button
+            (click)="addToCart(product)">Add to Cart</button>
+            <button style="background-color: #e91e63; color:white;margin-left: 10px;"
+            class="add-to-cart" mat-raised-button
+    (click)="addToBuyNow(product)"   >Buy Now</button>
+    </div>
+</div>

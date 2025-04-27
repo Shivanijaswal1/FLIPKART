@@ -1,0 +1,93 @@
+<mat-toolbar class="navbar">
+  <img
+    src="https://couponcode-images.s3-ap-southeast-1.amazonaws.com/public/shop/240.jpg"
+    alt="flipkart" class="logo">
+
+  <mat-form-field appearance="fill" class="search-field">
+    <mat-label>Search for products brands and more</mat-label>
+    <input matInput placeholder="Search for products brands and more" [(ngModel)]="searchText"  (input)="filterProducts()">
+  </mat-form-field>
+  
+  <button class="btn1" (click)="open()" matTooltip="Login">
+    <mat-icon>login</mat-icon>Login & Signup</button>
+  <button class="btn1" matTooltip="card" (click)="cart()">
+    <mat-icon>add_shopping_cart</mat-icon>Card
+    <div *ngIf="cartCount > 0" [matBadge]="cartCount"
+      matBadgeOverlap="false"></div>
+  </button>
+  <button class="btn1" matTooltip="Become a Seller">
+    <mat-icon>storefront</mat-icon>Become a seller</button>
+  <button class="btn1" [matMenuTriggerFor]="menu">
+    <mat-icon>morevert</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Download App</button>
+    <button mat-menu-item>24x7 Customer Care </button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item (click)="logout()">Log Out</button>
+
+  </mat-menu>
+</mat-toolbar>
+<mat-toolbar>
+  <button class="btns" [matMenuTriggerFor]="electronics">Electronics</button>
+  <mat-menu #electronics="matMenu">
+    <button mat-menu-item (click)="product()">Mobile</button>
+    <button mat-menu-item (click)="mobileAccessories()">Mobile
+      Accessories</button>
+    <button mat-menu-item (click)="computerAccessories()">Computer Accessories</button>
+    <button mat-menu-item (click)="Speaker()">Speaker</button>
+  </mat-menu>
+  <button class="btns" [matMenuTriggerFor]="tv">TVs & Appliances</button>
+  <mat-menu #tv="matMenu">
+    <button mat-menu-item>Washing Machine</button>
+    <button mat-menu-item>Refrigerator</button>
+    <button mat-menu-item>Air Conditioner</button>
+  </mat-menu>
+  <button class="btns" [matMenuTriggerFor]="men">Men</button>
+  <mat-menu #men="matMenu">
+    <button mat-menu-item>Footware</button>
+    <button mat-menu-item>Shirt</button>
+    <button mat-menu-item> T-Shirt</button>
+    <button mat-menu-item>Jeans</button>
+  </mat-menu>
+
+  <button class="btns" [matMenuTriggerFor]="women">Women</button>
+  <mat-menu #women="matMenu">
+    <button mat-menu-item>Footware</button>
+    <button mat-menu-item>Jeans & shirt</button>
+    <button mat-menu-item>Jacket & T-Shirt</button>
+    <button mat-menu-item>Kurti</button>
+  </mat-menu>
+
+  <button class="btns" [matMenuTriggerFor]="kids">Baby & Kids</button>
+  <mat-menu #kids="matMenu">
+    <button mat-menu-item>Toys & soft Toys</button>
+    <button mat-menu-item>Kids Footware</button>
+    <button mat-menu-item> Kids Jacket & T-Shirt</button>
+    <button mat-menu-item>Baby Care</button>
+  </mat-menu>
+
+  <button class="btns" [matMenuTriggerFor]="home">Home & Furniture </button>
+  <mat-menu #home="matMenu">
+    <button mat-menu-item>Lights & clocks</button>
+    <button mat-menu-item>Bedsheet & Blankets</button>
+    <button mat-menu-item>Furninture</button>
+    <button mat-menu-item>Bed</button>
+  </mat-menu>
+  <button class="btns" [matMenuTriggerFor]="books">Sports, Books & More
+  </button>
+  <mat-menu #books="matMenu">
+    <button mat-menu-item>British Novel Books</button>
+    <button mat-menu-item>British Story Books</button>
+    <button mat-menu-item>Home Gyms</button>
+    <button mat-menu-item>Sweet Store</button>
+  </mat-menu>
+  <button class="btns">Offer Zone</button>
+</mat-toolbar>
+
+<div class="product-grid">
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <img [src]="product.image" alt="{{ product.name }}" class="product-image">
+    <p class="product-name">{{ product.name }}</p>
+    <p class="product-price">₹{{ product.price }}</p> 
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="side-box">
+        <h1>Looks like you're new here!</h1>
+        <p>Sign up with your mobile number to get started</p>
+    </div>
+    <div class="input">
+        <form [formGroup]="signForm">
+        <mat-form-field>
+            <mat-label>Enter Email/Mobile Number</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+          <mat-error *ngIf="signForm.controls['email']?.invalid && (signForm.controls['email']?.touched || signForm.controls['email']?.dirty)" >
+            Please complete this required field.
+          </mat-error>
+          <h3>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</h3>
+          <button class="login-button" mat-raised-button (click)="signup()">SignUp</button>
+        </form>
+          <button style="margin-top: 20px;" class="login-button" mat-raised-button (click)="login()" >Existing User?Log in</button>
+         
+    </div>
+    </div>

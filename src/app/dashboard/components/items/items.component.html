@@ -1,0 +1,30 @@
+<div class="main">
+    <h1>Electronics Products</h1>
+<div class="product-list">
+    <div class="product" *ngFor="let product of products">
+        <img [src]="product.image" alt="{{product.blue}}">
+        <h3>{{ product.name }}</h3>
+        <h3>{{ product.rating }}</h3>
+        <p>{{ product.desc }}</p>
+        <p>Price: ₹{{ product.price }}</p>
+        <button 
+            class="add-to-cart" mat-raised-button
+            (click)="addToCart(product)">Add to Cart</button>
+    </div>
+</div>
+</div>
+
+<div class="main">
+    <h1>Beauty products</h1>
+    <div class="product-list">
+        <div class="product" *ngFor="let product of beautyproduct">
+            <img [src]="product.image" alt="{{product.blue}}">
+            <h3>{{ product.name }}</h3>
+            <h3>{{ product.rating }} </h3>
+            <p>{{ product.desc }}</p>
+            <p>Price: ₹{{ product.price }}</p>
+            <button class="add-to-cart" mat-raised-button
+                (click)="addToCart(product)">Add to Cart</button>
+        </div>
+    </div>
+</div>
